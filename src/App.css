@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,48 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  min-height: 1200px;
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  background-color: whitesmoke;
+}
+
+.jumbotron span {
+  font-weight: bold;
+}
+
+.jumbotron h1 {
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.card {
+  border-radius: 30px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-text-a {
+  font-weight: lighter;
+}
+
+.my-4 {
+  width: 25%;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+.card-img-top {
+  padding: 30px 30px 30px 30px;
+  border-radius: 50px; 
+}
+
+.btn {
+  border-radius: 50px;
 }
