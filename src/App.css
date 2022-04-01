@@ -2,6 +2,15 @@
   /* min-height: 1200px; */
 }
 
+body {
+  background-color: #282c34;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 .jumbotron {
   padding: 2rem 1rem;
   background-color: whitesmoke;
@@ -42,14 +51,6 @@ h2 {
   border-radius: 50px;
 }
 
-.track span {
-  font-weight: 400;
-}
-
-.track h1 {
-  font-weight: normal;
-  letter-spacing: 1px;
-}
 
 .card-img-track {
   padding: 30px 30px 30px 30px;
@@ -60,17 +61,10 @@ h2 {
 }
 
 /* homework event handling */
-.Music2 {
-    background-color: #282c34;
-    min-height: 100vh;
-    color: white;
-
-}
-
 .search {
-    min-height: 70vh;
+    
     text-align: center;
-    padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 .imgSearch {
@@ -90,4 +84,30 @@ h2 {
   text-decoration: none;
   color: white;
   margin-bottom: 18px;
+}
+
+.title-spotify {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.title-spotify p {
+  font-weight: 300;
+}
+
+
+/* css baru */
+.track img {
+  width: 40%;
+  height: auto;
+  border-radius: 50px;
+}
+
+.hr {
+  color: white;
+}
+
+.no-image {
+  text-align: center;
 }
