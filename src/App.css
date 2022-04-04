@@ -4,6 +4,7 @@
 
 body {
   background-color: #282c34;
+  color: white;
 }
 
 * {
@@ -65,6 +66,7 @@ h2 {
     
     text-align: center;
     margin-bottom: 20px;
+    
 }
 
 .imgSearch {
@@ -104,10 +106,18 @@ h2 {
   border-radius: 50px;
 }
 
+.track {
+  color :#282c34;
+}
+
 .hr {
   color: white;
 }
 
 .no-image {
   text-align: center;
+}
+
+.form-playlist {
+  color: white;
 }

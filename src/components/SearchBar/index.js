@@ -46,7 +46,7 @@ export default function SearchBar({ accessToken, onSuccess, onClearSearch }) {
           <input
             type="text"
             name="query"
-            placeholder="Search..."
+            placeholder="Search"
             onChange={handleInput}
             required
             value={text}

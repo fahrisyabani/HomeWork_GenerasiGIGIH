@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-export default function Track({ url, title, artist, toggleSelect }) {
-  const [isSelected, setIsSelected] = useState(false);
+export default function Track({ url, title, artist, toggle, Select }) {
+  const [isSelected, setIsSelected] = useState(Select);
 
   const handleSelect = () => {
     setIsSelected(!isSelected);
-    toggleSelect();
+    toggle();
   };
 
   return (
