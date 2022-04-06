@@ -4,7 +4,7 @@ import Track from "../../components/Track";
 import SearchBar from "../../components/SearchBar";
 import FormPlaylist from "../../components/FormPlaylist";
 import { getUserProfile } from "../../server/index"
-import { useDispacth, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../server/authSlice"
 
 
@@ -15,7 +15,7 @@ function Home() {
   const [isSearch, setIsSearch] = useState(false);
   // homework-9
   const [selectedTracks, setSelectTracks] = useState([]);
-  const dispatch = useDispacth();
+  const dispatch = useDispatch();
 
   const [setToken] = useState("")
 
