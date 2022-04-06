@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { addTracksToPlaylist, createPlaylist } from "../../server/index";
+import { useSelector } from "react-redux";
 
-export default function FormPlaylist({ accessToken, userId, uris }) {
+function FormPlaylist({ uris }) {
   const [playlist, setPlaylist] = useState({
     title: "",
     description: "",
   });
+
+  const accessToken = useSelector((state) => state.auth.accessToken)
+  const userId = useSelector((state) => state.auth.user.id)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,3 +66,5 @@ export default function FormPlaylist({ accessToken, userId, uris }) {
     </div>
   );
 }
+
+export default FormPlaylist

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Track({ url, title, artist, toggle, Select }) {
+function Track({ url, title, artist, toggle, Select }) {
   const [isSelected, setIsSelected] = useState(Select);
 
   const handleSelect = () => {
@@ -35,3 +35,5 @@ export default function Track({ url, title, artist, toggle, Select }) {
     
   );
 }
+
+export default Track

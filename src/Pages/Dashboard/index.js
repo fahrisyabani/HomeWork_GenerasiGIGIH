@@ -2,36 +2,37 @@ import React, { useEffect, useState } from "react";
 import '../../App.css'
 import Track from "../../components/Track";
 import SearchBar from "../../components/SearchBar";
-
 import FormPlaylist from "../../components/FormPlaylist";
 import { getUserProfile } from "../../server/index"
+import { useDispacth, useSelector } from "react-redux";
+import { login } from "../../server/authSlice"
+
 
 function Home() {
   const [tracks, setTracks] = useState([]);
-  const [accessToken, setAccessToken] = useState("");
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const isAuthorized = useSelector((state) => state.auth.isAuthorized)
   const [selectedTrackURI, setSelectedTrackURI] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
   // homework-9
   const [selectedTracks, setSelectTracks] = useState([]);
-  const [user, setUser] = useState({});
+  const dispatch = useDispacth();
 
   const [setToken] = useState("")
-
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash);
     const accessToken = params.get("#access_token");
 
     if (accessToken !== null) {
-      setAccessToken(accessToken);
-      setIsAuthorized(accessToken !== null);
-
       const setUserProfile = async () => {
-        try {
-          const response = await getUserProfile(accessToken);
-
-          setUser(response);
+          try {
+              const response = await getUserProfile(accessToken);
+              dispatch(
+                  login({
+                      accessToken: accessToken,
+                      user: response,
+                  })
+              );
         } catch (e) {
           alert(e);
         }
@@ -84,8 +85,7 @@ function Home() {
   };
 
   const clearSearch = () => {
-    const selectedTracks = filterSelectedTracks();
-
+    // const selectedTracks = filterSelectedTracks();
     setTracks(selectedTracks);
     setIsSearch(false);
   };
@@ -100,10 +100,16 @@ function Home() {
     const uri = track.uri;
 
     if (selectedTrackURI.includes(uri)) {
-      setSelectTracks(selectedTrackURI.filter((item) => item.uri !== uri));
-    } else {
+        setSelectedTrackURI(
+          selectedTrackURI.filter((item) => item !== uri)
+      );
+      setSelectTracks(
+          selectedTrackURI.filter((item) => item.uri !== uri)
+      );
+  } else {
+      setSelectedTrackURI([...selectedTrackURI, uri]);
       setSelectTracks([...selectedTracks, track]);
-    }
+  }
   };
 
   return (
@@ -123,14 +129,11 @@ function Home() {
         <>
         {/* baru */}
         <FormPlaylist
-            accessToken={accessToken}
-            userId={user.id}
             uris={selectedTrackURI}
           />
          
 
           <SearchBar
-            accessToken={accessToken}
             onSuccess={(tracks) => handleSuccessSearch(tracks)}
             onClearSearch={clearSearch}
           />
