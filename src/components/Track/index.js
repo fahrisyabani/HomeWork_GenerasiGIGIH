@@ -1,3 +1,4 @@
+import React from "react";
 import React, { useState } from "react";
 
 function Track({ url, title, artist, toggle, Select }) {
@@ -36,4 +37,4 @@ function Track({ url, title, artist, toggle, Select }) {
   );
 }
 
-export default Track
+export default Track;

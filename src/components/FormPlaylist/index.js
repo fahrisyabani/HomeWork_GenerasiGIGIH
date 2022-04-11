@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import { addTracksToPlaylist, createPlaylist } from "../../server/index";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { addTracksToPlaylist, createPlaylist } from '../../server/index';
 
-function FormPlaylist({ uris }) {
+export default function FormPlaylist({ uris }) {
   const [playlist, setPlaylist] = useState({
-    title: "",
-    description: "",
+    title: '',
+    description: '',
   });
-
-  const accessToken = useSelector((state) => state.auth.accessToken)
-  const userId = useSelector((state) => state.auth.user.id)
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  const userId = useSelector((state) => state.auth.user.id);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,41 +29,49 @@ function FormPlaylist({ uris }) {
         await addTracksToPlaylist(accessToken, responsePlaylist.id, uris);
 
         setPlaylist({
-          title: "",
-          description: "",
+          title: '',
+          description: '',
         });
 
-        alert("Playlist created successfully!");
+        alert('Playlist created successfully!');
       } catch (e) {
         alert(e);
       }
     } else {
-      alert("Title must be at least 10 characters long.");
+      alert('Title must be at least 10 characters long.');
     }
   };
 
   return (
-    <div className="form-playlist mt-5">
+    <div className="form-playlist">
       <h3>Create Playlist</h3>
-      <div className="row mb-5 mt-3">
-        <div className="col-md-5">
-          <form className="form" onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Title</label>
-            <input type="text" name="title" class="form-control" id="title" value={playlist.title} onChange={handleChange} required/>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea id="desc" name="description" value={playlist.description} onChange={handleChange} class="form-control" rows="3" required></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={playlist.title}
+            onChange={handleChange}
+            required
+          />
         </div>
-      </div>
-
+        <div className="form-group">
+          <label htmlFor="desc">Description</label>
+          <textarea
+            id="desc"
+            name="description"
+            value={playlist.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button className="btn btn-primary" type="submit">
+          Submit
+        </button>
+      </form>
     </div>
+
   );
 }
-
-export default FormPlaylist
