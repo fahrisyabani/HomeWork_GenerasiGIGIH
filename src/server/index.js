@@ -1,11 +1,11 @@
 // Url api for search music spotify
-const SPOTIFY_BASE_URL=  "https://api.spotify.com/v1";
+const SPOTIFY_BASE_URL=  'https://api.spotify.com/v1';
 
 export const searchTrack = async (query, accessToken) => {
   const requestOptions = {
     headers: {
-      Authorization: "Bearer " + accessToken,
-      "Content-Type": "application/json",
+      Authorization: 'Bearer ' + accessToken,
+      'Content-Type': 'application/json',
     },
   };
 
@@ -20,8 +20,8 @@ export const searchTrack = async (query, accessToken) => {
 export const getUserProfile = async (accessToken) => {
   const requestOptions = {
     headers: {
-      Authorization: "Bearer " + accessToken,
-      "Content-Type": "application/json",
+      Authorization: 'Bearer ' + accessToken,
+      'Content-Type': 'application/json',
     },
   };
 
@@ -46,11 +46,11 @@ export const createPlaylist = async (
   });
 
   const requestOptions = {
-    method: "POST",
+    method: 'POST',
     body: data,
     headers: {
-      Authorization: "Bearer " + accessToken,
-      "Content-Type": "application/json",
+      Authorization: 'Bearer ' + accessToken,
+      'Content-Type': 'application/json',
     },
   };
 
@@ -68,11 +68,11 @@ export const addTracksToPlaylist = async (accessToken, playlistId, uris) => {
   });
 
   const requestOptions = {
-    method: "POST",
+    method: 'POST',
     body: data,
     headers: {
-      Authorization: "Bearer " + accessToken,
-      "Content-Type": "application/json",
+      Authorization: 'Bearer ' + accessToken,
+      'Content-Type': 'application/json',
     },
   };
 

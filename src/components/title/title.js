@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Title() {
 
@@ -10,7 +10,7 @@ function Title() {
           </div>
         </div>
         
-    )
+    );
 }
 
 export default Title;

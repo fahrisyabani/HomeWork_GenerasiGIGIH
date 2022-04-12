@@ -26,11 +26,6 @@ body {
   letter-spacing: 1px;
 }
 
-.card {
-  border-radius: 30px;
-  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.1);
-}
-
 .card-text-a {
   font-weight: lighter;
 }
@@ -52,7 +47,6 @@ h2 {
   border-radius: 50px;
 }
 
-
 .card-img-track {
   padding: 30px 30px 30px 30px;
   border-radius: 70px; 
@@ -63,10 +57,8 @@ h2 {
 
 /* homework event handling */
 .search {
-    
-    text-align: center;
-    margin-bottom: 20px;
-    
+  text-align: center;
+  margin-bottom: 20px; 
 }
 
 .imgSearch {
@@ -100,15 +92,11 @@ h2 {
 
 
 /* css baru */
-.track img {
+/* .track img {
   width: 40%;
   height: auto;
   border-radius: 50px;
-}
-
-.track {
-  color :#282c34;
-}
+} */
 
 .hr {
   color: white;
@@ -120,4 +108,28 @@ h2 {
 
 .form-playlist {
   color: white;
+}
+
+
+/* Card Track */
+.track {
+  border-radius: 10px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.1);
+  color :#282c34;
+ 
+}
+
+.track-list {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+
+.track img {
+  width: 100%;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 10px;
 }

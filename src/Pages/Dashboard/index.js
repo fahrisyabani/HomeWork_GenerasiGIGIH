@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
-import '../../App.css'
-import Track from "../../components/Track";
-import SearchBar from "../../components/SearchBar";
-import FormPlaylist from "../../components/FormPlaylist";
-import { getUserProfile } from "../../server/index"
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../server/authSlice"
+import React, { useEffect, useState } from 'react';
+import '../../App.css';
+import Track from '../../components/Track';
+import SearchBar from '../../components/SearchBar';
+import FormPlaylist from '../../components/FormPlaylist';
+import { getUserProfile } from '../../server/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../server/authSlice';
 
 
 function Home() {
   const [tracks, setTracks] = useState([]);
-  const isAuthorized = useSelector((state) => state.auth.isAuthorized)
+  const isAuthorized = useSelector((state) => state.auth.isAuthorized);
   const [selectedTrackURI, setSelectedTrackURI] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
   // homework-9
   const [selectedTracks, setSelectTracks] = useState([]);
   const dispatch = useDispatch();
 
-  const [setToken] = useState("")
+  const [setToken] = useState('');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash);
-    const accessToken = params.get("#access_token");
+    const accessToken = params.get('#access_token');
 
     if (accessToken !== null) {
       const setUserProfile = async () => {
@@ -58,9 +58,9 @@ function Home() {
   const getSpotifyLinkAuthorize = () => {
     const state = Date.now().toString();
     const CLIENT_ID= process.env.REACT_APP_SPOTIFY;
-    const SPOTIFY_SCOPE = "playlist-modify-private";
-    const RESPONSE_TYPE = "token";
-    const REDIRECT_URI = "http://localhost:3000/";
+    const SPOTIFY_SCOPE = 'playlist-modify-private';
+    const RESPONSE_TYPE = 'token';
+    const REDIRECT_URI = 'http://localhost:3000/';
 
     return `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&state=${state}&scope=${SPOTIFY_SCOPE}`;
   };
@@ -92,9 +92,9 @@ function Home() {
 
   // Logout
   const logout = () => {
-    setToken("")
-    window.localStorage.removeItem("token")
-  }
+    setToken('');
+    window.localStorage.removeItem('token');
+  };
 
   const toggleSelect = (track) => {
     const uri = track.uri;
@@ -113,17 +113,15 @@ function Home() {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
       {!isAuthorized && (
-        <div className="login-app">
-          <a href={getSpotifyLinkAuthorize()} className="btn btn-primary">
+        <div className='login-app'>
+          <a href={getSpotifyLinkAuthorize()} className='btn btn-primary'>
             Login
           </a>
         </div>
         
       )}
-
-    
 
       {isAuthorized && (
         <>
@@ -138,9 +136,9 @@ function Home() {
             onClearSearch={clearSearch}
           />
 
-          {tracks.length === 0 && <p className="no-image">No Image</p>}
+          {tracks.length === 0 && <p className='no-image'>No Image</p>}
 
-          <div className="track-list">
+          <div className='track-list'>
             {tracks.map((track) => (
               <Track
                 key={track.id}

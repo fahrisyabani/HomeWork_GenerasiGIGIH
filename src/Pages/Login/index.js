@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 // import config from "../../utils/config";
-import { getUserProfile } from "../../server";
-import { login } from "../../server/authSlice"; 
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import Title2 from "../../HomeWork6/Home/title";
+import { getUserProfile } from '../../server';
+import { login } from '../../server/authSlice'; 
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Title2 from '../../components/Title/index';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export default function Login() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash);
-    const accessTokenParams = params.get("#access_token");
+    const accessTokenParams = params.get('#access_token');
 
     if (accessTokenParams !== null) {
       const setUserProfile = async () => {
@@ -24,7 +24,7 @@ export default function Login() {
               user: response,
             })
           );
-          history.push("/create-playlist");
+          history.push('/create-playlist');
         } catch (e) {
           alert(e);
         }
@@ -37,9 +37,9 @@ export default function Login() {
 
     const state = Date.now().toString();
     const CLIENT_ID= process.env.REACT_APP_SPOTIFY;
-    const SPOTIFY_SCOPE = "playlist-modify-private";
-    const RESPONSE_TYPE = "token";
-    const REDIRECT_URI = "http://localhost:3000/";
+    const SPOTIFY_SCOPE = 'playlist-modify-private';
+    const RESPONSE_TYPE = 'token';
+    const REDIRECT_URI = 'http://localhost:3000/';
 
     return `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&state=${state}&scope=${SPOTIFY_SCOPE}`;
   };

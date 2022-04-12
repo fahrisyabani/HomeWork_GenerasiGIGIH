@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Track from "../../components/Track";
-import SearchBar from "../../components/SearchBar";
-import FormPlaylist from "../../components/FormPlaylist";
-import BtnLogout from "../../components/Logout";
+import React, { useEffect, useState } from 'react';
+import Track from '../../components/Track';
+import SearchBar from '../../components/SearchBar';
+import FormPlaylist from '../../components/FormPlaylist';
+import BtnLogout from '../../components/Logout';
 
 export default function CreatePlaylist() {
   const [tracks, setTracks] = useState([]);
@@ -60,7 +60,7 @@ export default function CreatePlaylist() {
         onClearSearch={clearSearch}
       />
 
-      {tracks.length === 0 && <p>No tracks</p>}
+      {tracks.length === 0 && <p></p>}
 
       <div className="track-list">
         {tracks.map((track) => (

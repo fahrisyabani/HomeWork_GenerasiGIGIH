@@ -43,35 +43,26 @@ export default function FormPlaylist({ uris }) {
   };
 
   return (
-    <div className="form-playlist">
+    <div className="form-playlist mt-5">
       <h3>Create Playlist</h3>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={playlist.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="desc">Description</label>
-          <textarea
-            id="desc"
-            name="description"
-            value={playlist.description}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+      <div className="row mb-5 mt-3">
+        <div className="col-md-5">
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
+              <input type="text" name="title" className="form-control" id="title" value={playlist.title} onChange={handleChange} required/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
+              <textarea id="desc" name="description" value={playlist.description} onChange={handleChange} className="form-control" rows="3" required></textarea>
+            </div>
 
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import '../../../src/App.css'
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import '../../../src/App.css';
+import { useSelector } from 'react-redux';
 
 // Url api for search music spotify
-const SPOTIFY_BASE_URL=  "https://api.spotify.com/v1";
+const SPOTIFY_BASE_URL=  'https://api.spotify.com/v1';
 
 function SearchBar({ onSuccess, onClearSearch }) {
-  const [text, setText] = useState("");
-  const accessToken = useSelector((state) => state.auth.accessToken)
+  const [text, setText] = useState('');
+  const accessToken = useSelector((state) => state.auth.accessToken);
 
   const handleInput = (e) => {
     setText(e.target.value);
@@ -18,8 +18,8 @@ function SearchBar({ onSuccess, onClearSearch }) {
 
     const requestOptions = {
       headers: {
-        Authorization: "Bearer " + accessToken,
-        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + accessToken,
+        'Content-Type': 'application/json',
       },
     };
 
@@ -37,7 +37,7 @@ function SearchBar({ onSuccess, onClearSearch }) {
   };
 
   const clearSearch = () => {
-    setText("");
+    setText('');
     onClearSearch();
   };
 
@@ -63,4 +63,4 @@ function SearchBar({ onSuccess, onClearSearch }) {
   );
 }
 
-export default SearchBar
+export default SearchBar;
