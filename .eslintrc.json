@@ -24,8 +24,8 @@
     "rules": { 
         "semi": ["error", "always"],
         "quotes": ["error", "single"],
-        "react/prop-types" : 0,
-        "no-undef" : "error"
+        // "react/prop-types" : 0,
+        // "no-undef" : "error"
         // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         // "react/react-in-jsx-scope":"off"
           

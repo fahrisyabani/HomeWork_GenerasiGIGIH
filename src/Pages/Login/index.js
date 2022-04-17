@@ -5,6 +5,7 @@ import { login } from '../../server/authSlice';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Title2 from '../../components/Title/index';
+import { Button } from '@mui/material';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -54,9 +55,13 @@ export default function Login() {
         <hr></hr>
         </div>
 
-      <a href={getSpotifyLinkAuthorize()} className="btn btn-primary">
+      {/* <a href={getSpotifyLinkAuthorize()} className="btn btn-primary">
         Login
-      </a>
+      </a> */}
+
+      <Button href={getSpotifyLinkAuthorize()} variant="contained" color="primary">
+        Login
+      </Button>
     </div>
   );
 }
