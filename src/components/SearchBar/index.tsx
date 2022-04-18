@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import '../../../src/App.css';
 import { useSelector } from 'react-redux';
@@ -5,7 +6,7 @@ import { TRootState } from '../../Store/index';
 import { searchTrack } from '../../server/index';
 
 // Url api for search music spotify
-const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
+// const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 
 interface Props {
   onSuccess: (tracks: any[]) => void;
@@ -24,18 +25,8 @@ const SearchBar: React.FC<Props> = ({ onSuccess, onClearSearch }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const requestOptions = {
-      headers: {
-        Authorization: 'Bearer ' + accessToken,
-        'Content-Type': 'application/json',
-      },
-    };
-
     try {
-      const response = await fetch(
-        `${SPOTIFY_BASE_URL}/search?type=track&q=${text}`,
-        requestOptions
-      ).then((data) => data.json());
+      const response = await searchTrack(text, accessToken);
 
       const tracks = response.tracks.items;
       onSuccess(tracks);
@@ -44,10 +35,10 @@ const SearchBar: React.FC<Props> = ({ onSuccess, onClearSearch }) => {
     }
   };
 
-  const clearSearch = () => {
-    setText('');
-    onClearSearch();
-  };
+  // const clearSearch: () => void = () => {
+  //   setText('');
+  //   onClearSearch();
+  // };
 
   return (
     <div className="search">

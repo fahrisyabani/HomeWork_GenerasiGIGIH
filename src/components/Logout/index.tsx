@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../server/authSlice';
 
-function BtnLogout() {
+const BtnLogout: React.FC = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const handleLogout: () => void = () => {
     dispatch(logout());
   };
 
@@ -27,6 +27,6 @@ function BtnLogout() {
       </div>
     </nav>
   );
-}
+};
 
 export default BtnLogout;

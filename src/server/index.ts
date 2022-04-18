@@ -4,7 +4,7 @@ const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 export const searchTrack = async (query: string, accessToken: string) => {
   const requestOptions = {
     headers: {
-      Authorization: 'Bearer ' + accessToken,
+      Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
   };
@@ -20,7 +20,7 @@ export const searchTrack = async (query: string, accessToken: string) => {
 export const getUserProfile = async (accessToken: string) => {
   const requestOptions = {
     headers: {
-      Authorization: 'Bearer ' + accessToken,
+      Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
   };
@@ -49,7 +49,7 @@ export const createPlaylist = async (
     method: 'POST',
     body: data,
     headers: {
-      Authorization: 'Bearer ' + accessToken,
+      Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
   };
@@ -71,7 +71,7 @@ export const addTracksToPlaylist = async (accessToken: string, playlistId: strin
     method: 'POST',
     body: data,
     headers: {
-      Authorization: 'Bearer ' + accessToken,
+      Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
   };

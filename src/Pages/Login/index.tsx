@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import config from "../../utils/config";
 import { getUserProfile } from '../../server';
-import { login } from '../../server/authSlice'; 
+import { login } from '../../server/authSlice';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Title2 from '../../components/Title/index';
@@ -35,9 +35,8 @@ export default function Login() {
   }, []);
 
   const getSpotifyLinkAuthorize = () => {
-
     const state = Date.now().toString();
-    const CLIENT_ID= process.env.REACT_APP_SPOTIFY;
+    const CLIENT_ID = process.env.REACT_APP_SPOTIFY;
     const SPOTIFY_SCOPE = 'playlist-modify-private';
     const RESPONSE_TYPE = 'token';
     const REDIRECT_URI = 'http://localhost:3000/';
@@ -47,13 +46,13 @@ export default function Login() {
 
   return (
     <div className="login-wrapper">
-        {/* Title */}
-        <Title2 />
-        {/* akhir Title */}
+      {/* Title */}
+      <Title2 />
+      {/* akhir Title */}
 
-        <div className="col-md-3 hr">
+      <div className="col-md-3 hr">
         <hr></hr>
-        </div>
+      </div>
 
       {/* <a href={getSpotifyLinkAuthorize()} className="btn btn-primary">
         Login

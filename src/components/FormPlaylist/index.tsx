@@ -67,7 +67,6 @@ const FormPlaylist: React.FC<IProps> = ({ uris }) => {
               <label htmlFor="exampleFormControlTextarea1" className="form-label" > Description </label>
               <textarea id="desc" name="description" value={playlist.description} onChange={handleChange} className="form-control" rows={3} required> </textarea>
             </div>
-
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
