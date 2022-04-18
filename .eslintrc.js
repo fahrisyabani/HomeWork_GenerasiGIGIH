@@ -21,9 +21,9 @@ module.exports = {
         'react',
         '@typescript-eslint'
     ],
-    rules: {
-        semi: ['error', 'always'],
-        quotes: ['error', 'single'],
+    'rules': {
+        'semi': ['error', 'always'],
+        'quotes': ['error', 'single'],
         'react/prop-types' : 0,
         'no-undef' : 'error'
     }

@@ -1,12 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+interface IInitialState {
+    accessToken: string;
+    isAuthorized: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    user: any;
+}
+
+const initialState: IInitialState = {
+    accessToken: '',
+    isAuthorized: false,
+    user: {},
+};
+
 export const authSlice = createSlice({
     name: 'auth',
-    initialState: {
-        accessToken: '',
-        isAuthorized: false,
-        user: {},
-    },
+    initialState,
     reducers: {
         login: (state, action) => {
             state.isAuthorized = true;
@@ -14,8 +23,7 @@ export const authSlice = createSlice({
             state.accessToken = action.payload.accessToken;
         },
 
-        logout: (state) =>
-        {
+        logout: (state) => {
             state.isAuthorized = false;
             state.user = {};
             state.accessToken = '';
