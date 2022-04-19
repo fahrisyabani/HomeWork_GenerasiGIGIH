@@ -4,25 +4,28 @@ import Track from '../../components/Track';
 import SearchBar from '../../components/SearchBar';
 import FormPlaylist from '../../components/FormPlaylist';
 import BtnLogout from '../../components/Logout';
+import { Track as ITrack } from '../../variety/spotify';
 
 const CreatePlaylist: React.FC = () => {
-  const [tracks, setTracks] = useState<any[]>([]);
+  const [tracks, setTracks] = useState<ITrack[]>([]);
   const [selectedTrackURI, setSelectedTrackURI] = useState<string[]>([]);
-  const [selectedTracks, setSelectedTracks] = useState<any[]>([]);
+  const [selectedTracks, setSelectedTracks] = useState<ITrack[]>([]);
   const [isSearch, setIsSearch] = useState<boolean>(false);
 
   useEffect(() => {
     if (!isSearch) {
-      const selectedTracks: any[] = filterSelectedTracks();
+      const selectedTracks: ITrack[] = filterSelectedTracks();
 
       setTracks(selectedTracks);
     }
   }, [selectedTrackURI]);
 
-  const filterSelectedTracks: () => any[] = () =>
+  const filterSelectedTracks: () => ITrack[] = () =>
     tracks.filter((track) => selectedTrackURI.includes(track.uri));
 
-  const handleSuccessSearch: (searchTracks: any[]) => void = (searchTracks) => {
+  const handleSuccessSearch: (searchTracks: ITrack[]) => void = (
+    searchTracks
+  ) => {
     setIsSearch(true);
 
     const selectedSearchTracks = searchTracks.filter((data: any) =>
@@ -37,12 +40,16 @@ const CreatePlaylist: React.FC = () => {
     setIsSearch(false);
   };
 
-  const toggleSelect: (track: any) => void = (track) => {
+  const toggleSelect: (track: ITrack) => void = (track) => {
     const { uri } = track;
 
     if (selectedTrackURI.includes(uri)) {
-      setSelectedTrackURI(selectedTrackURI.filter((item: any) => item !== uri));
-      setSelectedTracks(selectedTrackURI.filter((item: any) => item.uri !== uri));
+      setSelectedTrackURI(
+        selectedTrackURI.filter((item: string) => item !== uri)
+      );
+      setSelectedTracks(
+        selectedTracks.filter((item: ITrack) => item.uri !== uri)
+      );
     } else {
       setSelectedTrackURI([...selectedTrackURI, uri]);
       setSelectedTracks([...selectedTracks, track]);

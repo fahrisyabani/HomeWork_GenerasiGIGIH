@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from '../variety/spotify';
 
 interface IInitialState {
     accessToken: string;
     isAuthorized: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    user: any;
+    user: User | null;
 }
 
 const initialState: IInitialState = {
     accessToken: '',
     isAuthorized: false,
-    user: {},
+    user: null,
 };
 
 export const authSlice = createSlice({
@@ -25,7 +26,7 @@ export const authSlice = createSlice({
 
         logout: (state) => {
             state.isAuthorized = false;
-            state.user = {};
+            state.user = null;
             state.accessToken = '';
         }
     },

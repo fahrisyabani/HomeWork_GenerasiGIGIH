@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import '../../../src/App.css';
-import { useSelector } from 'react-redux';
-import { TRootState } from '../../Store/index';
+import { RootState, useAppSelector } from '../../Store/index';
 import { searchTrack } from '../../server/index';
+import { Track as ITrack } from '../../variety/spotify';
 
 // Url api for search music spotify
 // const SPOTIFY_BASE_URL = 'https://api.spotify.com/v1';
 
-interface Props {
-  onSuccess: (tracks: any[]) => void;
+interface IProps {
+  onSuccess: (tracks: ITrack[]) => void;
   onClearSearch: () => void;
 }
 
-const SearchBar: React.FC<Props> = ({ onSuccess, onClearSearch }) => {
+const SearchBar: React.FC<IProps> = ({ onSuccess, onClearSearch }) => {
   const [text, setText] = useState<string>('');
-  const accessToken = useSelector((state: TRootState) => state.auth.accessToken);
+  const accessToken: string = useAppSelector((state: RootState) => state.auth.accessToken);
 
   const handleInput = (e: React.ChangeEvent) => {
     const target = e.target as HTMLTextAreaElement;
