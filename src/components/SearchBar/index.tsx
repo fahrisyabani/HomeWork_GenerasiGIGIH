@@ -41,24 +41,26 @@ const SearchBar: React.FC<IProps> = ({ onSuccess, onClearSearch }) => {
   // };
 
   return (
-    <div className="search">
-      <form className="form-search" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            name="query"
-            placeholder="Search"
-            onChange={handleInput}
-            required
-            value={text}
-          />
-          <input type="submit" className="btn btn-primary" value="Search" />
-        </div>
+    <div className="searchBar">
+      <form className="" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="query"
+          placeholder="Search"
+          aria-label="search-input"
+          onChange={handleInput}
+          value={text}
+          required
+        />
+        {/* <button aria-label="search-button" className='btn btn-success'>
+          <i className="bi bi-search"></i>
+        </button> */}
       </form>
       {/* <button className="btn btn-text" onClick={clearSearch}>
         Clear Search
       </button> */}
     </div>
+
   );
 };
 

@@ -5,7 +5,7 @@ function Album({name, album, images, songTitle, artists}) {
 
     return (
 
-        <div className="row mb-3 justify-content-center cc">
+        <div className="row mb-3 justify-content-center">
                 <div className="col-md-3 mb-4">
                     <div className="card border-light">
                     <img src={images} alt={name} className="card-img-track"/>
@@ -14,7 +14,7 @@ function Album({name, album, images, songTitle, artists}) {
                             <h5>{album}</h5>
                             <p>{songTitle}</p>
                             <p>{artists}</p>
-                            <button className="btn btn-primary btn-md mb-3 mt-4" type="button" href="#" id="btn">
+                            <button className="btn btn-primary mb-3 mt-3 btn-sm" type="button" href="#" id="btn">
                               Select
                             </button>
                         </div>

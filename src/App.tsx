@@ -65,7 +65,6 @@ function App() {
             </Route>
             <Route path="/" exact>
               <Login />
-
             </Route>
           </Switch>
         </Router>

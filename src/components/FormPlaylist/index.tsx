@@ -29,7 +29,7 @@ const FormPlaylist: React.FC<IProps> = ({ uris }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (playlist.title.length > 10) {
+    if (playlist.title.length > 7) {
       try {
         const responsePlaylist = await createPlaylist(accessToken, userId, {
           name: playlist.title,
@@ -48,25 +48,25 @@ const FormPlaylist: React.FC<IProps> = ({ uris }) => {
         alert(e);
       }
     } else {
-      alert('Title at least 10 characters.');
+      alert('Title at least 8 characters.');
     }
   };
 
   return (
-    <div className="form-playlist mt-5">
+    <div className="form-playlist">
       <h3>Create Playlist</h3>
-      <div className="row mb-5 mt-3">
+      <div className="row mb-5 mt-2">
         <div className="col-md-5">
           <form className="form" onSubmit={handleSubmit} >
-            <div className="mb-3">
+            <div className="mb-2">
               <label htmlFor="exampleInputEmail1" className="form-label" > Title </label>
-              < input type="text" name="title" className="form-control" id="title" value={playlist.title} onChange={handleChange} required />
+              <input type="text" name="title" aria-label="input-title" className="form-control" id="title" value={playlist.title} onChange={handleChange} required />
             </div>
-            <div className="mb-3">
+            <div className="mb-2">
               <label htmlFor="exampleFormControlTextarea1" className="form-label" > Description </label>
-              <textarea id="desc" name="description" value={playlist.description} onChange={handleChange} className="form-control" rows={3} required> </textarea>
+              <textarea id="desc" name="description" aria-label="input-description" value={playlist.description} onChange={handleChange} className="form-control" rows={3} required> </textarea>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-dark btn-sm">
               Submit
             </button>
           </form>

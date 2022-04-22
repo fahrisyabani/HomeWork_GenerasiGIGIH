@@ -19,8 +19,6 @@ describe('Render Search component first', () => {
 
   it('Success render Search component', () => {
     expect(screen.getByLabelText('search-input')).toBeInTheDocument();
-    expect(screen.getByText('Search')).toBeInTheDocument();
-    expect(screen.getByText('Clear Search')).toBeInTheDocument();
   });
 
   it('Search the input value must be the same as the input', () => {

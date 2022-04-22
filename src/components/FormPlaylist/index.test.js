@@ -21,7 +21,7 @@ describe('Form Create Playlist must be rendered', () => {
     expect(screen.getByText(/create playlist/i)).toBeInTheDocument();
     expect(screen.getByLabelText('input-title')).toBeInTheDocument();
     expect(screen.getByLabelText('input-description')).toBeInTheDocument();
-    expect(screen.getByText('Create')).toBeInTheDocument();
+    expect(screen.getByText('Submit')).toBeInTheDocument();
   });
 
   it('Fill in the form Create Playlist', () => {
