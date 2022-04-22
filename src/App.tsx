@@ -10,7 +10,7 @@ import {
 import './App.css';
 import { useSelector } from 'react-redux';
 import CreatePlaylist from './Pages/CreatePlaylist';
-import Login from './Pages/Login';
+import Login from './Pages/login';
 import { RootState } from './Store';
 
 function App() {
