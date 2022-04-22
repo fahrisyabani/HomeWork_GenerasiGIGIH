@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import config from "../../utils/config";
 import { getUserProfile } from '../../server';
 import { login } from '../../server/authSlice';
 import { useDispatch } from 'react-redux';
@@ -54,11 +53,6 @@ export default function Login() {
           </div>
         </div>
         <ul className="nav-list">
-          {/* <li>
-            <i className="bi bi-search"></i>
-            <input type="text" placeholder="search"></input>
-            <span className="tooltip">Search</span>
-          </li> */}
           <li>
             <a href={getSpotifyLinkAuthorize()}>
               <i className="bi bi-grid"></i>
