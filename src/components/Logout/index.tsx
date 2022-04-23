@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppDispatch } from '../../Store';
+import { useAppDispatch } from '../../store';
 import { logout } from '../../server/authSlice';
 import '../../App.css';
 

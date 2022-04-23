@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RootState, useAppSelector } from '../../Store/index';
+import { RootState, useAppSelector } from '../../store/index';
 import { addTracksToPlaylist, createPlaylist } from '../../server/index';
 
 interface IProps {

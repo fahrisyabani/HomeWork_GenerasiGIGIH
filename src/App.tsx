@@ -11,7 +11,7 @@ import './App.css';
 import { useSelector } from 'react-redux';
 import CreatePlaylist from './pages/CreatePlaylist';
 import Login from './pages/login';
-import { RootState } from './Store';
+import { RootState } from './store';
 
 function App() {
   const isAuthorized: boolean = useSelector((state: RootState) => state.auth.isAuthorized);

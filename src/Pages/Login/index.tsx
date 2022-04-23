@@ -38,9 +38,9 @@ export default function Login() {
     const CLIENT_ID = process.env.REACT_APP_SPOTIFY;
     const SPOTIFY_SCOPE = 'playlist-modify-private';
     const RESPONSE_TYPE = 'token';
-    const REDIRECT_URI = 'http://localhost:3000/';
+    const URI = process.env.REDIRECT_URI;
 
-    return `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&state=${state}&scope=${SPOTIFY_SCOPE}`;
+    return `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${URI}&state=${state}&scope=${SPOTIFY_SCOPE}`;
   };
 
   return (

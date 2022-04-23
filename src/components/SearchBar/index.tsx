@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import '../../../src/App.css';
-import { RootState, useAppSelector } from '../../Store/index';
+import { RootState, useAppSelector } from '../../store/index';
 import { searchTrack } from '../../server/index';
 import { Track as ITrack } from '../../variety/spotify';
 
@@ -10,10 +10,9 @@ import { Track as ITrack } from '../../variety/spotify';
 
 interface IProps {
   onSuccess: (tracks: ITrack[]) => void;
-  onClearSearch: () => void;
 }
 
-const SearchBar: React.FC<IProps> = ({ onSuccess, onClearSearch }) => {
+const SearchBar: React.FC<IProps> = ({ onSuccess }) => {
   const [text, setText] = useState<string>('');
   const accessToken: string = useAppSelector((state: RootState) => state.auth.accessToken);
 
